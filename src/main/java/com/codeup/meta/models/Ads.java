@@ -1,34 +1,12 @@
 package com.codeup.meta.models;
-import javax.persistence.*;
 
-@Entity
-@Table(name="ads")
-public class Ads {
+public interface Ads {
 
-    public Long id;
-    public String title;
-    public String Description;
 
-    @Entity
-    public class Ad {
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        public long id;
 
-        @Column
-        public String title;
+    long getId();
 
-        @Column
-        public String Description;
+    String getTitle();
 
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    @Id
-    public Long getId() {
-        return id;
-    }
+    String getDescription();
 }
