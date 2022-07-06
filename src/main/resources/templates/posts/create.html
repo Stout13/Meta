@@ -8,12 +8,12 @@
 
 
 
-<form th:action="@{/post/create}" th:method="post" th:object="${com.codeup.meta.models.Post}">
+<form th:action="@{/post/create}" th:method="post" th:object="${post}">
     <label>Title</label>
     <label for="post_title"></label><input type="text" th:field="*{title}" id="post_title" class="field"/>
     <label>Description</label>
     <label for="description"></label><input type="text" th:field="*{description}" id="description" class="field"/>
-    <button>Press here to Guess</button>
+    <button>Submit</button>
 </form>
 
 </body>

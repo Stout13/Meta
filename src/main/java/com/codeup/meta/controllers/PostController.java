@@ -3,13 +3,26 @@ package com.codeup.meta.controllers;
 
 import com.codeup.meta.models.Post;
 import com.codeup.meta.models.PostRepository;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Controller
 public class PostController {
+    private final PostRepository postRepository;
+    public PostController(PostRepository postRepository, PostRepository postRepository1) {
+
+        this.postRepository = postRepository1;
+    }
+
     @GetMapping("/")
     public String hello() {
         return "Hello";
@@ -38,15 +51,22 @@ public class PostController {
 //        return "roll-dice";
 //    }
 
-
-    public PostController(PostRepository postRepository) {
-    }
-
-//    @RequestMapping(path = "/posts", method = RequestMethod.GET)
-//    @ResponseBody
-//    public String postIndex() {
-//        return "create";
+//    @Component
+//    @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
+//    public ShoppingCart implements Serializable {
+//        private List<Post> posts = new ArrayList<>();
+//        posts = (ArrayList<Post>) postRepository.findAll();
+//
+//        private Long total;
 //    }
+
+    @PostMapping(path = "/index")
+    @ResponseBody
+    public ArrayList<Post> postIndex() {
+        ArrayList<Post> posts = (ArrayList<Post>) postRepository.findAll();
+
+        return posts;
+    }
 
 //    @RequestMapping(path = "/posts/{id}", method = RequestMethod.GET)
 //    @ResponseBody
@@ -54,26 +74,25 @@ public class PostController {
 //        return id + id;
 //    }
 
-//    @RequestMapping(path = "/posts/create", method = RequestMethod.GET)
-//    @ResponseBody
-//    public String postForm(@PathVariable String form) {
-//        return form;
-//    }
+    @GetMapping(path = "/posts/create")
+    public String postForm(Model model) {
+        model.addAttribute("post", new Post());
+        return "posts/create";
+    }
 
     @PostMapping(path = "/post/create")
-    public String postPost(@RequestParam(name = "title") String title, @RequestParam(name = "description") String description, PostRepository postRepository) {
-        Post newPost = new Post();
-        newPost.setTitle(title);
-        newPost.setDescription(description);
+    public String postPost(@ModelAttribute Post newPost) {
         postRepository.save(newPost);
-        return "/index";
-    }
 
-    @GetMapping(path = "/create")
-    public String getPost() {
-        return "/create";
+        return "index";
     }
 }
+
+//    @GetMapping(path = "/create")
+//    public String getPost() {
+//        return "/create";
+//    }
+//}
 
 //    @RequestMapping(path = "/posts/create", method = RequestMethod.POST)
 //    @ResponseBody

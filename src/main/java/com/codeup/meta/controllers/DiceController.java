@@ -6,8 +6,8 @@
 //
 //@Controller
 //public class DiceController {
-
-
+//
+//
 //    @GetMapping("/")
 //    public String hello() {
 //        return "Hello";
@@ -31,7 +31,7 @@
 //        model.addAttribute("roll", roll);
 //        return "roll-dice";
 //    }
-
+//
 //        @RequestMapping(path = "/posts/{id}", method = RequestMethod.GET)
 //        @ResponseBody
 //        public String postEntry(@PathVariable String id) {
@@ -39,7 +39,7 @@
 //
 //            return id + id;
 //        }
-
+//
 //        @RequestMapping(path = "/posts/create", method = RequestMethod.GET)
 //        @ResponseBody
 //        public String postForm(@PathVariable String form) {
@@ -47,12 +47,12 @@
 //
 //            return form;
 //        }
-
-//        @RequestMapping(path = "/posts/create", method = RequestMethod.POST)
-//        @ResponseBody
-//        public String subtractNumbers(@PathVariable String formData) {
 //
-//
-//            return postForm(formData);
-//        }
+////        @RequestMapping(path = "/posts/create", method = RequestMethod.POST)
+////        @ResponseBody
+////        public String subtractNumbers(@PathVariable String formData) {
+////
+////
+////            return postForm(formData);
+////        }
 //    }
