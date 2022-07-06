@@ -1,29 +1,53 @@
 package com.codeup.meta.models;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.repository.query.FluentQuery;
+
 import javax.persistence.*;
+import java.util.List;
+import java.util.Optional;
+import java.util.function.Function;
 
 @Table(name="ads")
 @Entity
 public class Ad {
 
-    public Ad(){
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long id;
+    private long id;
 
     @Column
-    public String title;
+    private String title;
 
     @Column
-    public String Description;
+    private String Description;
 
-    public void setId(Long id) {
+    public Ad() {
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
         this.id = id;
     }
 
-    @Id
-    public Long getId() {
-        return id;
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
     }
 }

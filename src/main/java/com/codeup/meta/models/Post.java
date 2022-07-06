@@ -4,159 +4,53 @@ import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.repository.query.FluentQuery;
 
+import javax.persistence.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
-public class Post implements Posts {
-    @Override
-    public Object save(Object entity) {
-        return null;
-    }
 
-    @Override
-    public Optional findById(Object o) {
-        return Optional.empty();
-    }
+@Table(name="posts")
+@Entity
+public class Post{
 
-    @Override
-    public boolean existsById(Object o) {
-        return false;
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public long id;
 
-    @Override
-    public List findAll() {
-        return null;
-    }
+    @Column
+    public String title;
 
-    @Override
-    public List findAll(Sort sort) {
-        return null;
-    }
+    @Column
+    public String description;
 
-    @Override
-    public Page findAll(Pageable pageable) {
-        return null;
-    }
-
-    @Override
-    public List findAllById(Iterable iterable) {
-        return null;
-    }
-
-    @Override
-    public long count() {
-        return 0;
-    }
-
-    @Override
-    public void deleteById(Object o) {
+    public Post(){
 
     }
 
-    @Override
-    public void delete(Object entity) {
-
+    public long getId() {
+        return id;
     }
 
-    @Override
-    public void deleteAllById(Iterable iterable) {
-
+    public void setId(long id) {
+        this.id = id;
     }
 
-    @Override
-    public void deleteAll(Iterable entities) {
-
+    public String getTitle() {
+        return title;
     }
 
-    @Override
-    public void deleteAll() {
-
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    @Override
-    public void flush() {
-
+    public String getDescription() {
+        return description;
     }
 
-    @Override
-    public void deleteAllInBatch(Iterable entities) {
-
-    }
-
-    @Override
-    public void deleteAllByIdInBatch(Iterable iterable) {
-
-    }
-
-    @Override
-    public void deleteAllInBatch() {
-
-    }
-
-    @Override
-    public Object getOne(Object o) {
-        return null;
-    }
-
-    @Override
-    public Object getById(Object o) {
-        return null;
-    }
-
-    @Override
-    public Object getReferenceById(Object o) {
-        return null;
-    }
-
-    @Override
-    public List findAll(Example example, Sort sort) {
-        return null;
-    }
-
-    @Override
-    public List findAll(Example example) {
-        return null;
-    }
-
-    @Override
-    public List saveAllAndFlush(Iterable entities) {
-        return null;
-    }
-
-    @Override
-    public Object saveAndFlush(Object entity) {
-        return null;
-    }
-
-    @Override
-    public List saveAll(Iterable entities) {
-        return null;
-    }
-
-    @Override
-    public Optional findOne(Example example) {
-        return Optional.empty();
-    }
-
-    @Override
-    public Page findAll(Example example, Pageable pageable) {
-        return null;
-    }
-
-    @Override
-    public long count(Example example) {
-        return 0;
-    }
-
-    @Override
-    public boolean exists(Example example) {
-        return false;
-    }
-
-    @Override
-    public Object findBy(Example example, Function queryFunction) {
-        return null;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
