@@ -10,9 +10,9 @@
 
 <form th:action="@{/post/create}" th:method="post" th:object="${com.codeup.meta.models.Post}">
     <label>Title</label>
-    <input type="text" th:field="*{title}" id="post_title" class="field"/>
+    <label for="post_title"></label><input type="text" th:field="*{title}" id="post_title" class="field"/>
     <label>Description</label>
-    <input type="text" th:field="*{description}" id="description" class="field"/>
+    <label for="description"></label><input type="text" th:field="*{description}" id="description" class="field"/>
     <button>Press here to Guess</button>
 </form>
 
