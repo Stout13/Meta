@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.metamodel.SetAttribute;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -61,11 +62,10 @@ public class PostController {
 //    }
 
     @PostMapping(path = "/index")
-    @ResponseBody
-    public ArrayList<Post> postIndex() {
+    public String postIndex(Model model) {
         ArrayList<Post> posts = (ArrayList<Post>) postRepository.findAll();
-
-        return posts;
+        model.addAttribute("posts", posts);
+        return "index";
     }
 
 //    @RequestMapping(path = "/posts/{id}", method = RequestMethod.GET)
