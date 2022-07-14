@@ -3,26 +3,25 @@ package com.codeup.meta.controllers;
 
 import com.codeup.meta.models.Post;
 import com.codeup.meta.models.PostRepository;
-import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.ScopedProxyMode;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.metamodel.SetAttribute;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
 
 @Controller
-public class PostController {
-    private final PostRepository postRepository;
-    public PostController(PostRepository postRepository, PostRepository postRepository1) {
+public class PostController implements PostRepository {
 
-        this.postRepository = postRepository1;
+    private final PostRepository postRepository;
+
+    public PostController(PostRepository postRepository) {
+        this.postRepository = postRepository;
     }
+
+
+//    public PostController(PostRepository postRepository1) {
+//
+//        this.postRepository = postRepository1;
+//    }
 
     @GetMapping("/")
     public String hello() {
@@ -61,12 +60,34 @@ public class PostController {
 //        private Long total;
 //    }
 
-    @PostMapping(path = "/index")
-    public String postIndex(Model model) {
-        ArrayList<Post> posts = (ArrayList<Post>) postRepository.findAll();
-        model.addAttribute("posts", posts);
-        return "index";
-    }
+
+
+//    @controller
+//    public class PostController {
+//        @GetMapping (Ov"/posts")
+//        public String postsIndex(Model model)(
+//                1/
+//        Inside the method that shows all the posts,
+//        create a new
+//        objects to it, then pass that list to the view.
+//                ArrayList<Post» allPosts = new ArrayList<>();
+//        oni
+//allPosts.add (new Post (title: "Good news - I adopted all of the
+//                to my house and experience northwest San Antonio's first cat cafe called Howlin'
+//                Howell's Cat C
+//                WOW !")) :
+//                allPosts.add(new Post (title: "New special at Howlin' Howell's Cat Cafel",
+//                        body: "We'
+//                                added a range of new coffee products and TV screens for LAN parties, video game parties, sports
+//                                events,
+//                        and otherwise! Call 210-555-5555 to make a reservation today :D"));
+//
+//    @PostMapping(path = "/index")
+//    public String postIndex(Model model) {
+//        ArrayList<Post> posts = (ArrayList<Post>) postRepository.findAll();
+//        model.addAttribute("posts", posts);
+//        return "index";
+//    }
 
 //    @RequestMapping(path = "/posts/{id}", method = RequestMethod.GET)
 //    @ResponseBody
