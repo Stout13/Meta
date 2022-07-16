@@ -1,21 +1,25 @@
-package com.codeup.meta.controllers;
+//package com.codeup.meta.controllers;
+//
+//
+//
+//import org.springframework.stereotype.Controller;
+//import org.springframework.web.bind.annotation.*;
+//
+//
+//@Controller
+//public class PostController {
+//    @GetMapping("/")
+//    @ResponseBody
+//    public String hello() {
+//        return "Hello";
+//    }
+//}
 
-
-import com.codeup.meta.models.Post;
-import com.codeup.meta.models.PostRepository;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-
-
-@Controller
-public class PostController implements PostRepository {
-
-    private final PostRepository postRepository;
-
-    public PostController(PostRepository postRepository) {
-        this.postRepository = postRepository;
-    }
+//    private final PostRepository postRepository;
+//
+//    public PostController(PostRepository postRepository) {
+//        this.postRepository = postRepository;
+//    }
 
 
 //    public PostController(PostRepository postRepository1) {
@@ -23,10 +27,6 @@ public class PostController implements PostRepository {
 //        this.postRepository = postRepository1;
 //    }
 
-    @GetMapping("/")
-    public String hello() {
-        return "Hello";
-    }
 //    @GetMapping("/")
 //    public String hello() {
 //        return "Hello";
@@ -95,19 +95,19 @@ public class PostController implements PostRepository {
 //        return id + id;
 //    }
 
-    @GetMapping(path = "/posts/create")
-    public String postForm(Model model) {
-        model.addAttribute("post", new Post());
-        return "posts/create";
-    }
+//    @GetMapping(path = "/posts/create")
+//    public String postForm(Model model) {
+//        model.addAttribute("post", new Post());
+//        return "posts/create";
+//    }
+//
+//    @PostMapping(path = "/post/create")
+//    public String postPost(@ModelAttribute Post newPost) {
+//        postRepository.save(newPost);
+//
+//        return "index";
+//    }
 
-    @PostMapping(path = "/post/create")
-    public String postPost(@ModelAttribute Post newPost) {
-        postRepository.save(newPost);
-
-        return "index";
-    }
-}
 
 //    @GetMapping(path = "/create")
 //    public String getPost() {

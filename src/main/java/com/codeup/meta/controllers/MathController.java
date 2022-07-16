@@ -5,11 +5,14 @@
 //
 //@Controller
 //public class MathController {
-////    @GetMapping("/")
-////    @ResponseBody
-////    public String main() {
-////        return "This is the landing page!";
-////    }
+//    @GetMapping("/")
+//    @ResponseBody
+//    public String main() {
+//        return "This is the landing page!";
+//    }
+
+
+
 //    @GetMapping(path = "/add/{number1}/and/{number2}")
 //    @ResponseBody
 //    public String addNumbers(@PathVariable int number1, int number2) {
