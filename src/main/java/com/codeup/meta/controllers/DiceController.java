@@ -21,13 +21,13 @@ public class DiceController {
     //
 //
     @PostMapping(path = "/roll-dice")
-    public String rollDice(@RequestParam(name = "guess") Double guess, @ModelAttribute Model model) {
-        double roll = Math.floor(Math.random() * 100) * 5 + 1;
+    public String rollDice(@RequestParam(name = "guess") Integer guess, Model model) {
+        int roll = (int) Math.ceil(Math.random() * 5 + 1);
         String result;
         if (guess == roll) {
-            result = "Nice" + guess + " was correct! How do you do it?!";
+            result = "Nice, " + guess + " was correct! How do you do it?!";
         } else {
-            result = "Dude" + guess + "? Do you even Vegas bruh?! The dice roll was a " + roll;
+            result = "Dude " + guess + "? Do you even Vegas bruh?! The dice roll was a " + roll;
         }
         model.addAttribute("result", result);
         return "roll-dice";
