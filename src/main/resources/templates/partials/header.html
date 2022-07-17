@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="header-links">
   <meta charset="UTF-8">
@@ -6,5 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title th:text="${title}"></title>
   <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css}">
-  <link rel="stylesheet" th:href="@{/css/party-planner.css}">
 </head>
+<nav th:replace="partials/navbar :: navbar"></nav>
+<body>
+
+</body>
+</html>
+

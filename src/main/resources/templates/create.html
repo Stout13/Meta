@@ -5,6 +5,10 @@
     <title>Dice</title>
 </head>
 <body>
+<div th:hea
+<div th:replace = "fragmentfilepath :: navbar">
+</div>
+
 
 <form th:action="@{/post/create}" th:method="post" th:object="${post}">
     <label>Title</label>
