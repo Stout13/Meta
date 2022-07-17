@@ -1,10 +1,10 @@
-//package com.codeup.meta.controllers;
-//
-//import org.springframework.stereotype.Controller;
-//import org.springframework.web.bind.annotation.*;
-//
-//@Controller
-//public class MathController {
+package com.codeup.meta.controllers;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+
+@Controller
+public class MathController {
 //    @GetMapping("/")
 //    @ResponseBody
 //    public String main() {
@@ -12,22 +12,30 @@
 //    }
 
 
+    @GetMapping(path = "/add/{number1}/and/{number2}")
+    @ResponseBody
+    public String addNumbers(@PathVariable String number1, @PathVariable String number2) {
 
-//    @GetMapping(path = "/add/{number1}/and/{number2}")
-//    @ResponseBody
-//    public String addNumbers(@PathVariable int number1, int number2) {
-//
-//        int sum = number1 + number2;
-//        return (number1 + " plus " + number2 + " is " + sum + "!");
-//    }
-//
-//    @GetMapping(path = "/subtract/{number1}/from/{number2}")
-//    @ResponseBody
-//    public String subtractNumbers(@PathVariable int number1, int number2) {
-//
-//        int sum = number1 + number2;
-//        return (number1 + " minus " + number2 + " is " + sum + "!");
-//    }
+        int sum = Integer.parseInt(number1) + Integer.parseInt(number2);
+        return (number1 + " plus " + number2 + " is " + sum + "!");
+    }
+
+    @GetMapping(path = "/subtract/{number1}/from/{number2}")
+    @ResponseBody
+    public String subtractNumbers(@PathVariable String number1, @PathVariable String number2) {
+
+        int dif = Integer.parseInt(number1) - Integer.parseInt(number2);
+        return (number1 + " minus " + number2 + " is " + dif + "!");
+    }
+
+    @GetMapping(path = "/subtract/{number1}/from/{number2}")
+    @ResponseBody
+    public String multiplyNumbers(@PathVariable String number1, @PathVariable String number2) {
+
+        int dif = Integer.parseInt(number1) - Integer.parseInt(number2);
+        return (number1 + " minus " + number2 + " is " + dif + "!");
+    }
+}
 //
 //    @GetMapping(path = "/subtract/{number1}/from/{number2}")
 //    @ResponseBody
