@@ -28,12 +28,20 @@ public class MathController {
         return (number1 + " minus " + number2 + " is " + dif + "!");
     }
 
-    @GetMapping(path = "/subtract/{number1}/from/{number2}")
+    @GetMapping(path = "/multiply/{number1}/times/{number2}")
     @ResponseBody
     public String multiplyNumbers(@PathVariable String number1, @PathVariable String number2) {
 
-        int dif = Integer.parseInt(number1) - Integer.parseInt(number2);
-        return (number1 + " minus " + number2 + " is " + dif + "!");
+        int mul = Integer.parseInt(number1) * Integer.parseInt(number2);
+        return (number1 + " times " + number2 + " is " + mul + "!");
+    }
+
+    @GetMapping(path = "/divide/{number1}/by/{number2}")
+    @ResponseBody
+    public String divideNumbers(@PathVariable String number1, @PathVariable String number2) {
+
+        int div = Integer.parseInt(number1) / Integer.parseInt(number2);
+        return (number1 + " divided by " + number2 + " is " + div + "!");
     }
 }
 //
