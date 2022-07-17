@@ -2,6 +2,7 @@ package com.codeup.meta.controllers;
 
 
 import com.codeup.meta.models.Post;
+import com.codeup.meta.models.PostRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,11 +26,11 @@ public class PostController {
 //    }
 //}
 
-//    private final PostRepository postRepository;
-//
-//    public PostController(PostRepository postRepository) {
-//        this.postRepository = postRepository;
-//    }
+    private final PostRepository postRepository;
+
+    public PostController(PostRepository postRepository) {
+        this.postRepository = postRepository;
+    }
 
 //    @GetMapping("/")
 //    public String hello() {
