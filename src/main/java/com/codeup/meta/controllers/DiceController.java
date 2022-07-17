@@ -6,31 +6,33 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class DiceController {
-//
+    //
 //
 //    @GetMapping("/")
 //    public String hello() {
 //        return "Hello";
 //    }
 //
-//    @GetMapping(path = "/roll-dice")
-//    public String showDice() {
-//        return "roll-dice";
-//    }
+    @GetMapping(path = "/roll-dice")
+    public String showDice() {
+        return "roll-dice";
+    }
+
+    //
 //
-//
-//    @PostMapping(path = "/roll-dice")
-//    public String rollDice(@RequestParam(name = "guess") Double guess, Model model) {
-//        String roll;
-//        if (guess == Math.floor(Math.random() * 100) * 5 + 1) {
-//            roll = "Nice" + guess + " was correct! How do you do it?!";
-//        } else {
-//            roll = "Dude" + guess + "? Do you even Vegas bruh?!";
-//        }
-//
-//        model.addAttribute("roll", roll);
-//        return "roll-dice";
-//    }
+    @PostMapping(path = "/roll-dice")
+    public String rollDice(@RequestParam(name = "guess") Double guess, @ModelAttribute Model model) {
+        double roll = Math.floor(Math.random() * 100) * 5 + 1;
+        String result;
+        if (guess == roll) {
+            result = "Nice" + guess + " was correct! How do you do it?!";
+        } else {
+            result = "Dude" + guess + "? Do you even Vegas bruh?! The dice roll was a " + roll;
+        }
+        model.addAttribute("result", result);
+        return "roll-dice";
+    }
+}
 //
 //        @RequestMapping(path = "/posts/{id}", method = RequestMethod.GET)
 //        @ResponseBody
@@ -57,22 +59,22 @@ public class DiceController {
 ////        }
 //    }
 
-    @GetMapping(path = "/roll-dice")
-    public String showDice() {
-        return "roll-dice";
-    }
-
-
-    @PostMapping(path = "/roll-dice")
-    public String rollDice(@RequestParam(name = "guess") Double guess, @ModelAttribute Model model) {
-        String roll;
-        if (guess == Math.floor(Math.random() * 100) * 5 + 1) {
-            roll = "Nice" + guess + " was correct! How do you do it?!";
-        } else {
-            roll = "Dude" + guess + "? Do you even Vegas bruh?!";
-        }
-
-        model.addAttribute("roll", roll);
-        return "roll-dice";
-    }
-}
+//    @GetMapping(path = "/roll-dice")
+//    public String showDice() {
+//        return "roll-dice";
+//    }
+//
+//
+//    @PostMapping(path = "/roll-dice")
+//    public String rollDice(@RequestParam(name = "guess") Double guess, @ModelAttribute Model model) {
+//        String roll;
+//        if (guess == Math.floor(Math.random() * 100) * 5 + 1) {
+//            roll = "Nice" + guess + " was correct! How do you do it?!";
+//        } else {
+//            roll = "Dude" + guess + "? Do you even Vegas bruh?!";
+//        }
+//
+//        model.addAttribute("roll", roll);
+//        return "roll-dice";
+//    }
+//}

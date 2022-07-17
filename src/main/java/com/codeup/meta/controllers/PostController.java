@@ -1,14 +1,10 @@
 package com.codeup.meta.controllers;
 
-
-
-import com.codeup.meta.models.Post;
-import com.codeup.meta.models.PostRepository;
+//import com.codeup.meta.models.Post;
+//import com.codeup.meta.models.PostRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 
 
 @Controller
@@ -20,17 +16,35 @@ public class PostController {
 //    }
 //}
 
-    private final PostRepository postRepository;
+//    private final PostRepository postRepository;
+//
+//    public PostController(PostRepository postRepository) {
+//        this.postRepository = postRepository;
+//    }
 
-    public PostController(PostRepository postRepository) {
-        this.postRepository = postRepository;
-    }
+//    @GetMapping("/")
+//    public String hello() {
+//        return "Hello";
+//    }
 
-    @GetMapping("/")
-    public String hello() {
-        return "Hello";
-    }
-
+//    @GetMapping(path = "/roll-dice")
+//    public String showDice() {
+//        return "roll-dice";
+//    }
+//
+//
+//    @PostMapping(path = "/roll-dice")
+//    public String rollDice(@RequestParam(name = "guess") Double guess, @ModelAttribute Model model) {
+//        String roll;
+//        if (guess == Math.floor(Math.random() * 100) * 5 + 1) {
+//            roll = "Nice" + guess + " was correct! How do you do it?!";
+//        } else {
+//            roll = "Dude" + guess + "? Do you even Vegas bruh?!";
+//        }
+//
+//        model.addAttribute("roll", roll);
+//        return "roll-dice";
+//    }
 
 //    @Component
 //    @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
@@ -61,34 +75,44 @@ public class PostController {
 //                                added a range of new coffee products and TV screens for LAN parties, video game parties, sports
 //                                events,
 //                        and otherwise! Call 210-555-5555 to make a reservation today :D"));
-
-    @PostMapping(path = "/index")
-    public String postIndex(Model model) {
-        ArrayList<Post> posts = (ArrayList<Post>) postRepository.findAll();
-        model.addAttribute("posts", posts);
-        return "index";
+//
+    @GetMapping(path = "posts/index")
+    @ResponseBody
+    public String postIndex() {
+//        ArrayList<Post> posts = (ArrayList<Post>) postRepository.findAll();
+//        model.addAttribute("posts", posts);
+        return "index of stuff";
     }
-
-    @GetMapping(path = "/posts/{id}")
+//
+    @GetMapping(path = "/posts/id/{id}")
     @ResponseBody
     public String postEntry(@PathVariable String id) {
         return id;
     }
+//
+//    @GetMapping(path = "/posts/create")
+//    @ResponseBody
+//    public String postForm() {
+//        return "do stuff";
+//    }
 
-    @GetMapping(path = "/posts/create")
-    public String postForm(Model model) {
-        return "posts/create";
-    }
-
-
-    @GetMapping(path = "/create")
-    public String postGet() {
-        return "view the form for creating a post";
-    }
-
-    @RequestMapping(path = "/posts/create", method = RequestMethod.POST)
+    @GetMapping(path = "/posts/form")
     @ResponseBody
-    public String postPost() {
-        return "create a new post";
+    public String postForm() {
+        return "This will display the form";
     }
+
+
+//    @GetMapping(path = "/create")
+//    public String getPost() {
+//        return "/create";
+//    }
+
+    @PostMapping(path = "posts/create")
+    @ResponseBody
+    public String postSave() {
+        return "Post a form";
+    }
+
 }
+
