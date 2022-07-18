@@ -1,4 +1,4 @@
-package com.codeup.meta.services;
+package com.codeup.meta;
 
 
 
